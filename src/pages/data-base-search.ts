@@ -2,7 +2,7 @@ import type { Template } from "dommie";
 import BreweryTable from "../components/brewery-table";
 
 export default (h: Template) => {
-  const { div, text, h1, ul, li } = h;
+  const { div, h1 } = h;
   return h.component(() => {
     div(
       { class: "flex flex-col justify-center items-center min-h-[100vh]" },

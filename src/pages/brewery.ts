@@ -9,7 +9,7 @@ export default (h: Template) => {
   const { button, a, ul, li, div, span, component, h1, img, text } = h;
 
   return component(({ r, afterMounted, state }) => {
-    const id = r.pathVariablesMap.brewery;
+    const id = r.pathVariablesMap.value.brewery;
     const brewery = state<null | Brewery>(null);
     const isFavorite = state(!!favoriteBreweries().find((b) => b.id === id));
 

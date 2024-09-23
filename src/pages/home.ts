@@ -47,7 +47,7 @@ const Home = (h: Template) => {
             button({
               class: "btn btn-primary",
               text: "My Breweries",
-              click: () => r.go("/map"),
+              click: () => r.go("/my-breweries"),
             });
           });
         });

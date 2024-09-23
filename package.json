@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@types/lodash.debounce": "^4.0.9",
-    "dommie": "^2.3.1",
+    "dommie": "^3.0.1",
     "leaflet": "^1.9.4",
     "lodash.debounce": "^4.0.8"
   }
