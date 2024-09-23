@@ -5,6 +5,10 @@ import L from "leaflet";
 
 export default (h: Template, options: MapOptions) => {
   const { component, div } = h;
+  const beerIcon = L.icon({
+    iconUrl: "/beer-map-icon.png",
+    iconSize: [30, 30],
+  });
 
   return component(({ afterMounted }) => {
     afterMounted(() => {
@@ -22,7 +26,7 @@ export default (h: Template, options: MapOptions) => {
       }).addTo(map);
       if (options.markers) {
         options.markers.forEach((marker) => {
-          L.marker([marker.latitude, marker.longitude])
+          L.marker([marker.latitude, marker.longitude], { icon: beerIcon })
             .addTo(map)
             .bindPopup(marker.title);
         });

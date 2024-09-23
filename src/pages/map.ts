@@ -23,6 +23,10 @@ const BeerMap = (h: Template) => {
         if (dist?.[0]) closestBrewery.update(dist[0]);
       });
     });
+    const beerIcon = L.icon({
+      iconUrl: "/beer-map-icon.png",
+      iconSize: [30, 30],
+    });
     const { div, text, h1, span, button } = h;
     div({ class: "min-h-screen flex flex-col items-center" }, () => {
       h1({ text: "Beer Map", class: "text-3xl font-semibold my-8" });
@@ -72,10 +76,13 @@ const BeerMap = (h: Template) => {
               markers = [];
               localBreweries.update(dist);
               localBreweries.value.forEach((brewery) => {
-                const marker = L.marker([
-                  parseFloat(String(brewery.latitude)),
-                  parseFloat(String(brewery.longitude)),
-                ])
+                const marker = L.marker(
+                  [
+                    parseFloat(String(brewery.latitude)),
+                    parseFloat(String(brewery.longitude)),
+                  ],
+                  { icon: beerIcon },
+                )
                   .addTo(map)
                   .bindPopup(
                     `<a href="/brewery/${brewery.id}" class="link">${brewery.name}</a>`,
