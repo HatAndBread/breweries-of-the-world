@@ -10,6 +10,12 @@ export default (h: Template) => {
     div({ class: "min-h-screen flex flex-col items-center" }, () => {
       h1({ text: "My Breweries", class: "text-3xl font-semibold my-8" });
       ul({ subscribe: breweries }, () => {
+        if (breweries.value.length === 0) {
+          h2({
+            text: "You haven't added any breweries to your favorites yet.",
+          });
+          return;
+        }
         breweries.value.forEach((b) => {
           li({ id: b.id, class: "flex items-center gap-4" }, () => {
             button(
